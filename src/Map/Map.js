@@ -9,11 +9,6 @@ import {
 
 const Map = compose(
     withProps({
-        /**
-         * Note: create and replace your own key in the Google console.
-         * https://console.developers.google.com/apis/dashboard
-         * The key "AIzaSyBkNaAGLEVq0YLQMi-PYEMabFeREadYe1Q" can be ONLY used in this sandbox (no forked).
-         */
         googleMapURL:
             "https://maps.googleapis.com/maps/api/js?key=AIzaSyDzZurSP3E9szvUVtvwWlgcg-s7iF82SIM&v=3.exp&libraries=geometry,drawing,places",
         loadingElement: <div style={{ height: `100%` }} />,
@@ -23,9 +18,9 @@ const Map = compose(
     withScriptjs,
     withGoogleMap
 )(props => (
-    <GoogleMap defaultZoom={8} defaultCenter={{ lat: -34.397, lng: 150.644 }}>
+    <GoogleMap defaultZoom={12} defaultCenter={{ lat: 49.28, lng: -123.12 }}>
         {props.isMarkerShown && (
-            <Marker position={{ lat: -34.397, lng: 150.644 }} />
+            <Marker position={{ lat: 49.29, lng: -123.12 }} />
         )}
     </GoogleMap>
 ));
