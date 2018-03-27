@@ -19,8 +19,10 @@ const Map = compose(
     withGoogleMap
 )(props => (
     <GoogleMap defaultZoom={12} defaultCenter={{ lat: 49.28, lng: -123.12 }}>
-        <DFMarker latitude={49.29} longitude={-123.12} description={"test"} />
-        <DFMarker latitude={49.27} longitude={-123.12} description={"test2"} />
+        {
+            props.cafes.map(cafe => <DFMarker latitude={cafe.latitude} longitude={cafe.longitude}
+                                                   name={cafe.name}/>)
+        }
     </GoogleMap>
 ));
 

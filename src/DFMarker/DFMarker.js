@@ -18,7 +18,7 @@ const DFMarker = compose(
         position={{ lat: props.latitude, lng: props.longitude }}
         onClick={props.onToggleOpen}>
         {props.isOpen && <InfoWindow onCloseClick={props.onToggleOpen}>
-            <p>{props.description}</p>
+            <h1>{props.name}</h1>
         </InfoWindow>}
     </Marker>
 ));
