@@ -1,11 +1,10 @@
 import React from "react";
-import { compose, withProps, withStateHandlers } from "recompose";
+import DFMarker from "../DFMarker/DFMarker";
+import { compose, withProps } from "recompose";
 import {
     withScriptjs,
     withGoogleMap,
-    GoogleMap,
-    Marker,
-    InfoWindow
+    GoogleMap
 } from "react-google-maps";
 
 const Map = compose(
@@ -16,26 +15,12 @@ const Map = compose(
         containerElement: <div style={{ height: `40rem` }} />,
         mapElement: <div style={{ height: `100%` }} />
     }),
-    withStateHandlers(() => ({
-        isOpen: false,
-    }), {
-        onToggleOpen: ({ isOpen }) => () => ({
-            isOpen: !isOpen,
-        })
-    }),
     withScriptjs,
     withGoogleMap
 )(props => (
     <GoogleMap defaultZoom={12} defaultCenter={{ lat: 49.28, lng: -123.12 }}>
-        {props.isMarkerShown && (
-            <Marker
-                position={{ lat: 49.29, lng: -123.12 }}
-                onClick={props.onToggleOpen}>
-                    {props.isOpen && <InfoWindow onCloseClick={props.onToggleOpen}>
-                        <p>This restaurant is dog friendly!</p>
-                    </InfoWindow>}
-            </Marker>
-        )}
+        <DFMarker latitude={49.29} longitude={-123.12} description={"test"} />
+        <DFMarker latitude={49.27} longitude={-123.12} description={"test2"} />
     </GoogleMap>
 ));
 
